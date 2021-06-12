@@ -53,17 +53,67 @@ def scrape():
     ft_image = soup.find_all('img', class_='headerimage fade-in')
     ft_image_url = ft_image[0]['src']
     featured_image_url = f"{marspic_url}/{ft_image_url}"
-    print(featured_image_url)
 
     # Add to dictionary
+    scrape_results['Featured Image URL'] = featured_image_url
 
     #
     # Mars Facts
     #
 
+    # Setup url and browser
+    marsfacts_url = 'https://galaxyfacts-mars.com'             
+    browser.visit(marsfacts_url)
+
+    # HTML object
+    html = browser.html
+    # Parse HTML with Beautiful Soup
+    soup = BeautifulSoup(html, 'html.parser')
+
+    # Get table as html
+    table_mars = soup.find_all('table', class_='table')
+
+    # Add to dictionary
+    scrape_results['Facts Table'] = table_mars
+
     #
     # Mars Hemispheres
     #
+
+    # Setup url and browser
+    marshemis_url = 'https://marshemispheres.com'             
+    browser.visit(marshemis_url)
+
+    # HTML object
+    html = browser.html
+    # Parse HTML with Beautiful Soup
+    soup = BeautifulSoup(html, 'html.parser')
+
+    # Get image titles
+    titles = []
+    word = 'Hemisphere'
+    titles_hem = soup.find_all('h3')
+    for title in titles_hem:
+        if word in title.text: 
+            titles.append(title.text)
+
+    # Get image urls
+    imgurls = []
+    ft_images = soup.find_all('img', class_='thumb')
+    for img in ft_images:
+        imgurls.append(f"{marshemis_url}/{img['src']}")
+    
+    # Create python dictionaries
+    ce_hem = {'title': titles[0], 'img_url': imgurls[0]}
+    sc_hem = {'title': titles[1], 'img_url': imgurls[1]}
+    sy_hem = {'title': titles[2], 'img_url': imgurls[2]}
+    va_hem = {'title': titles[3], 'img_url': imgurls[3]}
+
+    # Append to list
+    hemisphere_image_urls = [ce_hem,sc_hem,sy_hem,va_hem]
+
+    # Add to dictionary
+    scrape_results['Hemisphere Info'] = hemisphere_image_urls
 
     #   Close browser
     browser.quit()
