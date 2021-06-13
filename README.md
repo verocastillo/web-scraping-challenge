@@ -27,8 +27,6 @@ For this homework, the files include the following programming languages:
 
 <img width="1220" alt="ss1" src="https://user-images.githubusercontent.com/77795761/121796375-1f1b6780-cbde-11eb-8eff-d566ca4afb24.png">
 
-<img width="1220" alt="ss2" src="https://user-images.githubusercontent.com/77795761/121796569-a1585b80-cbdf-11eb-95df-6229c8fdcd3d.png">
-
 <img width="1218" alt="ss3" src="https://user-images.githubusercontent.com/77795761/121796573-a61d0f80-cbdf-11eb-81e7-50e5a619d369.png">
 
 
