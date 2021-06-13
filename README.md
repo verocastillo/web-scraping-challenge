@@ -1,5 +1,5 @@
 # Mission to Mars! Advanced Web Scraping
-<img width="1220" alt="ss1" src="https://user-images.githubusercontent.com/77795761/121796375-1f1b6780-cbde-11eb-8eff-d566ca4afb24.png">
+![mission_to_mars](https://user-images.githubusercontent.com/77795761/121796538-4de60d80-cbdf-11eb-8e3d-77866dee0247.png)
 
 In this repository, I built a web application that scrapes various websites for data related to the Mission to Mars and displays the information in a single HTML page. 
 
@@ -25,4 +25,5 @@ For this homework, the files include the following programming languages:
 3. HTML for the index page.
 4. CSS for the styling regarding the index page.
 
+<img width="1220" alt="ss1" src="https://user-images.githubusercontent.com/77795761/121796375-1f1b6780-cbde-11eb-8eff-d566ca4afb24.png">
 
