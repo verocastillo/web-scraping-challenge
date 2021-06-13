@@ -16,4 +16,13 @@ The structure of the repository is simple:
 It scraps data from several pages in order to obtain relevant information regarding the Mission to Mars. It scrapes the Mars News Site to collect the latest News Title and Paragraph Text, it gets the url for the Featured Space Image, it gets information about Mars from the Mars Facts in form of a table, and finally, it obtains the names and image urls for each of the Mars Hemispheres.
 
 ## What Tools Were Used?
-I used MongoDB with Flask templating to create the HTML page that displays all of the information that was scraped from the pages described above.
+I used MongoDB with Flask templating to create the HTML page that displays all of the information that was scraped from the pages described above. In addition, I used splinter to navigate the sites when needed and BeautifulSoup to help find and parse out the necessary data. Pymongo was used for CRUD applications, and Bootstrap to structure the HTML template.
+
+## Languages Included
+For this homework, the files include the following programming languages:
+1. Python for the app and scraping function.
+2. Jupyter Notebook for the initial scraping analysis.
+3. HTML for the index page.
+4. CSS for the styling regarding the index page.
+
+
