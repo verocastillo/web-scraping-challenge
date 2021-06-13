@@ -1,13 +1,13 @@
 # Import modules
 from flask import Flask, render_template, redirect
-import pymongo
+from flask_pymongo import PyMongo
 from scrape_mars import scrape
 
 # Create instance
 app = Flask(__name__)
 
 # Setup Mongo connection
-mongo = pymongo(app, uri="mongodb://localhost:27017/app")
+mongo = PyMongo(app, uri="mongodb://localhost:27017/app")
 
 # Main app route
 @app.route("/")
