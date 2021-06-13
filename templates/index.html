@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Page Title -->
+    <title>Mission to Mars!</title>
+
+    <!-- Bootstrap CSS Stylesheet -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+    <body class="bg-main">
+    <main>
+        <div class="jumbotron">
+            <br>
+            <h1 class="text-center">Mission To Mars</h1>
+            <div class="text-center">
+                <a class="btn btn-dark float-center" href="/scrape">Scrape New Data</a>
+            </div>
+            <br>
+        </div>
+        <br>
+        <div class="paragraph1 text-center">
+            <h2>Latest Mars News</h2>
+            <h3 class=>{{ scrape.Most_Recent_Article_Title }}</h3>
+            <p>{{ scrape.Most_Recent_Article_Text }}</p>
+        </div>
+        <br>
+
+        <div class="container float-center">
+            <div class="row justify-content-evenly">
+                <div class="col-md-7 float-right text-center">
+                    <h3>Featured Image</h3>
+                    <h4 class=>{{ scrape.Article_Header }}</h4>
+                    <p>{{ scrape.Article_Teaser }}</p>
+                    <img src="{{ scrape.Featured_Image_URL }}" class="thumbnail" alt="...">
+                </div>
+          
+                <div class="col-md-5 bg-white text-right">
+                    <h3>Facts About Mars vs Earth</h3>
+                    <span>{{ scrape.Facts_Table | safe }}</span>     
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="col-md-12 text-black">
+            <h2 class="text-center py-2">Mars Hemispheres</h2>
+        </div>    
+
+        <div class="row justify-content-evenly my-2">
+            
+            <div class="col-md-3 my-2">
+                <div class="card">
+                    <img src="{{ scrape.Hemisphere_Info[0]['img_url'] }}" class="thumbnail" alt="...">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ scrape.Hemisphere_Info[0]['title'] }}</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 my-2">
+                <div class="card">
+                    <img src="{{ scrape.Hemisphere_Info[1]['img_url'] }}" class="thumbnail" alt="...">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ scrape.Hemisphere_Info[1]['title'] }}</h5>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 my-2">
+                <div class="card">
+                    <img src="{{ scrape.Hemisphere_Info[2]['img_url'] }}" class="thumbnail" alt="...">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ scrape.Hemisphere_Info[2]['title'] }}</h5>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 my-2">
+                <div class="card">
+                    <img src="{{ scrape.Hemisphere_Info[3]['img_url'] }}" class="thumbnail" alt="...">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ scrape.Hemisphere_Info[3]['title'] }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    </body>
+
+</html>

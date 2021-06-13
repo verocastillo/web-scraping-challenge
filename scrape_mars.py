@@ -33,8 +33,8 @@ def scrape():
     first_news_text = news_text[0].text
 
     # Add to dictionary
-    scrape_results['Most Recent Article Title'] = first_news_title
-    scrape_results['Most Recent Article Text'] = first_news_text
+    scrape_results['Most_Recent_Article_Title'] = first_news_title
+    scrape_results['Most_Recent_Article_Text'] = first_news_text
 
     #
     # JPL Mars Space Images - Featured Image
@@ -55,7 +55,7 @@ def scrape():
     featured_image_url = f"{marspic_url}/{ft_image_url}"
 
     # Add to dictionary
-    scrape_results['Featured Image URL'] = featured_image_url
+    scrape_results['Featured_Image_URL'] = featured_image_url
 
     #
     # Mars Facts
@@ -70,11 +70,18 @@ def scrape():
     # Parse HTML with Beautiful Soup
     soup = BeautifulSoup(html, 'html.parser')
 
-    # Get table as html
-    table_mars = soup.find_all('table', class_='table')
+    # Get table as DataFrame
+    mars_facts = pd.read_html(marsfacts_url)[0]
+    mars_facts.columns = ['Mars - Earth Comparison', 'Mars', 'Earth'] 
+    mars_facts = mars_facts.iloc[1:]                              
+    mars_facts.set_index('Mars - Earth Comparison', inplace=True)      
+    mars_facts.head()
+
+    # Export to html 
+    table_mars = mars_facts.to_html()
 
     # Add to dictionary
-    scrape_results['Facts Table'] = table_mars
+    scrape_results['Facts_Table'] = table_mars
 
     #
     # Mars Hemispheres
@@ -113,7 +120,7 @@ def scrape():
     hemisphere_image_urls = [ce_hem,sc_hem,sy_hem,va_hem]
 
     # Add to dictionary
-    scrape_results['Hemisphere Info'] = hemisphere_image_urls
+    scrape_results['Hemisphere_Info'] = hemisphere_image_urls
 
     #   Close browser
     browser.quit()
